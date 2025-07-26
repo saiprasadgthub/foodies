@@ -5,13 +5,14 @@
   "type": "module",
   "homepage": "https://saiprasadgthub.github.io/foodies",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "predeploy": "npm run build && npm run copy-dist",
+  "copy-dist": "xcopy dist .publish /E /H /Y",
+  "deploy": "gh-pages -d .publish"
+},
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
