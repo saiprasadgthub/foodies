@@ -9,11 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
-    // Remove "predeploy" and "deploy" scripts if they were there,
-    // as you are using manual Git commands for deployment.
-    // If you want to keep gh-pages installed but not use it, you can leave it.
-    // "predeploy": "npm run build", // <-- REMOVE THIS LINE
-    // "deploy": "gh-pages -d dist" // <-- REMOVE THIS LINE
+    
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
