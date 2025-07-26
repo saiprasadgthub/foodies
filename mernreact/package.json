@@ -1,4 +1,3 @@
-
 {
   "name": "mernreact",
   "private": true,
@@ -6,12 +5,15 @@
   "type": "module",
   "homepage": "https://saiprasadgthub.github.io/foodies",
   "scripts": {
-    "lint": "eslint .",
-    "preview": "vite preview",
     "dev": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist --src '**/*' '!**/*.map' '!**/node_modules/**'"
+    "lint": "eslint .",
+    "preview": "vite preview"
+    // Remove "predeploy" and "deploy" scripts if they were there,
+    // as you are using manual Git commands for deployment.
+    // If you want to keep gh-pages installed but not use it, you can leave it.
+    // "predeploy": "npm run build", // <-- REMOVE THIS LINE
+    // "deploy": "gh-pages -d dist" // <-- REMOVE THIS LINE
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
