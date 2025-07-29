@@ -11,7 +11,7 @@ import {mongoDB} from './db.js'
 mongoDB();
 app.use(cors({
   origin: ['http://localhost:5173',
-  "https://foodies-six-mu.vercel.app/"],
+  "https://foodies-six-mu.vercel.app"],
   credentials: true
 }));
 
