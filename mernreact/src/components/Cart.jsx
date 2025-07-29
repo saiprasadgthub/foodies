@@ -37,7 +37,7 @@ export default function Cart() {
 
     console.log("Sending order payload:", orderPayload);
 
-    let res = await fetch(api.OrderData, { // ✅ Using dynamic API route
+    let res = await fetch(api.Orderdata, { // ✅ Using dynamic API route
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
