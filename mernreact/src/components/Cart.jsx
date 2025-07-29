@@ -37,20 +37,19 @@ export default function Cart() {
 
     console.log("Sending order payload:", orderPayload);
 
-    let res = await fetch(api.Orderdata, { // ✅ Using dynamic API route
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(orderPayload)
-    });
+    try {
+      let res = await api.post("/Orderdata", orderPayload);
+      console.log("order response", res);
 
-    console.log("order response", res);
-
-    if (res.status === 200) {
-      dispatch({ type: "DROP" });
+      if (res.status === 200) {
+        dispatch({ type: "DROP" });
+      }
+    } catch (err) {
+      console.error("Order failed:", err);
+      alert("Something went wrong while placing your order.");
     }
-  }
+  };
+
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
 
