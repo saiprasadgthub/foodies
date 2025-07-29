@@ -38,7 +38,7 @@ export default function Cart() {
     console.log("Sending order payload:", orderPayload);
 
     try {
-      let res = await api.post("/Orderdata", orderPayload);
+      let res = await api.post("/orderData", orderPayload);
       console.log("order response", res);
 
       if (res.status === 200) {
