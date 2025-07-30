@@ -41,7 +41,7 @@ const cartdispatchcontext=createContext();
 
     default:
       console.log("Error in reducer");
-      return state; // ✅ Always return current state on unknown action
+      return state;
   }
 };
 

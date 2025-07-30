@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { api } from '../lib/api';
 
 export default function MyOrder() {
   const [orderData, setOrderData] = useState([]);
 
   const fetchMyOrder = async () => {
-    const res = await fetch("http://localhost:4000/api/myorderdata", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: localStorage.getItem("useremail") })
-    });
+    try {
+      const res = await api.post("/myorderdata", {
+        email: localStorage.getItem("useremail")
+      });
 
-    const json = await res.json();
-    console.log(json);
+      const json = res.data;
+      console.log(json);
 
-    if (json.success) {
-      setOrderData(json.order_data || []);
-    } else {
-      alert("Failed to fetch orders: " + json.error);
+      if (json.success) {
+        setOrderData(json.order_data || []);
+      } else {
+        alert("Failed to fetch orders: " + json.error);
+      }
+    } catch (err) {
+      console.error("Error fetching orders:", err);
+      alert("Something went wrong while fetching your orders.");
     }
   };
 
